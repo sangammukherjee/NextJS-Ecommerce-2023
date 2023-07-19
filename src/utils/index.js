@@ -188,3 +188,16 @@ export const AvailableSizes = [
     label : 'L'
   }
 ]
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyB4xqK2jcCCAMsFJlpOt9mebkKgkn8tMkA",
+  authDomain: "next-js-ecommerce-2023-3323b.firebaseapp.com",
+  projectId: "next-js-ecommerce-2023-3323b",
+  storageBucket: "next-js-ecommerce-2023-3323b.appspot.com",
+  messagingSenderId: "440179822114",
+  appId: "1:440179822114:web:68999f4b9cea658b26047b",
+  measurementId: "G-9WE69QCGBM"
+};
+
+export const firebaseStroageURL = 'gs://next-js-ecommerce-2023-3323b.appspot.com';
+
