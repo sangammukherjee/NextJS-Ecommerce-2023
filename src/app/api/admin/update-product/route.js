@@ -1,6 +1,5 @@
 import connectToDB from "@/database";
 import Product from "@/models/product";
-import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
@@ -42,8 +41,6 @@ export async function PUT(req) {
     );
 
     if (updatedProduct) {
-      const extractPathToRevalidate  = req.nextUrl.searchParams.get('tag')
-      revalidateTag(extractPathToRevalidate)
       return NextResponse.json({
         success: true,
         message: "Product updated successfully",
