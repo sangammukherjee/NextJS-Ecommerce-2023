@@ -1,36 +1,36 @@
 import connectToDB from "@/database";
 import AuthUser from "@/middleware/AuthUser";
-import Product from "@/models/product";
+import Cart from "@/models/cart";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-export async function DELETE(req) {
+export async function GET(req) {
   try {
     await connectToDB();
+
     const isAuthUser = await AuthUser(req);
 
-    if (isAuthUser?.role === "admin") {
+    if (isAuthUser) {
       const { searchParams } = new URL(req.url);
       const id = searchParams.get("id");
 
       if (!id)
         return NextResponse.json({
           success: false,
-          message: "Product ID is required",
+          message: "Please login in!",
         });
+      const extractAllCartItems = await Cart.find({ userID: id })
+        .populate("userID")
+        .populate("productID");
 
-      const deletedProduct = await Product.findByIdAndDelete(id);
-
-      if (deletedProduct) {
-        return NextResponse.json({
-          success: true,
-          message: "Product deleted successfully",
-        });
+      if (extractAllCartItems) {
+        NextResponse.json({ success: true, data: extractAllCartItems });
       } else {
         return NextResponse.json({
           success: false,
-          message: "Failed to delete the product ! Please try again",
+          message: "No Cart items are found !",
+          status: 204,
         });
       }
     } else {
@@ -40,10 +40,9 @@ export async function DELETE(req) {
       });
     }
   } catch (e) {
-    console.log(error);
     return NextResponse.json({
       success: false,
-      message: "Something went wrong ! Please try again later",
+      message: "Something went wrong ! Please try again",
     });
   }
 }

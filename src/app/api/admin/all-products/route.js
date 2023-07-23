@@ -10,8 +10,6 @@ export async function GET(req) {
 
       const extractAllproducts = await Product.find({});
 
-      console.log(extractAllproducts , 'extractAllproducts');
-
       if (extractAllproducts) {
         return NextResponse.json({
           success: true,
