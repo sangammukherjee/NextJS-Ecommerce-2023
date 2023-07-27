@@ -20,12 +20,12 @@ export async function GET(req) {
           success: false,
           message: "Please login in!",
         });
-      const extractAllCartItems = await Cart.find({ userID: id })
-        .populate("userID")
-        .populate("productID");
+      const extractAllCartItems = await Cart.find({ userID: id }).populate(
+        "productID"
+      );
 
       if (extractAllCartItems) {
-        NextResponse.json({ success: true, data: extractAllCartItems });
+        return NextResponse.json({ success: true, data: extractAllCartItems });
       } else {
         return NextResponse.json({
           success: false,
