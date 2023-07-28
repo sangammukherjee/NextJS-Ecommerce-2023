@@ -125,7 +125,10 @@ export default function CartModal() {
         <Fragment>
           <button
             type="button"
-            onClick={()=>router.push('/cart')}
+            onClick={()=>{
+              router.push('/cart')
+              setShowCartModal(false)
+            }}
             className="mt-1.5 w-full inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Go To Cart

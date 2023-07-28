@@ -173,21 +173,20 @@ export const adminAddProductformControls = [
   },
 ];
 
-
 export const AvailableSizes = [
   {
-    id :'s',
-    label : 'S'
+    id: "s",
+    label: "S",
   },
   {
-    id :'m',
-    label : 'M'
+    id: "m",
+    label: "M",
   },
   {
-    id :'l',
-    label : 'L'
-  }
-]
+    id: "l",
+    label: "L",
+  },
+];
 
 export const firebaseConfig = {
   apiKey: "AIzaSyB4xqK2jcCCAMsFJlpOt9mebkKgkn8tMkA",
@@ -196,8 +195,46 @@ export const firebaseConfig = {
   storageBucket: "next-js-ecommerce-2023-3323b.appspot.com",
   messagingSenderId: "440179822114",
   appId: "1:440179822114:web:68999f4b9cea658b26047b",
-  measurementId: "G-9WE69QCGBM"
+  measurementId: "G-9WE69QCGBM",
 };
 
-export const firebaseStroageURL = 'gs://next-js-ecommerce-2023-3323b.appspot.com';
+export const firebaseStroageURL =
+  "gs://next-js-ecommerce-2023-3323b.appspot.com";
 
+export const addNewAddressFormControls = [
+  {
+    id: "fullName",
+    type: "input",
+    placeholder: "Enter your full name",
+    label: "Full Name",
+    componentType: "input",
+  },
+  {
+    id: "address",
+    type: "input",
+    placeholder: "Enter your full address",
+    label: "Address",
+    componentType: "input",
+  },
+  {
+    id: "city",
+    type: "input",
+    placeholder: "Enter your city",
+    label: "City",
+    componentType: "input",
+  },
+  {
+    id: "country",
+    type: "input",
+    placeholder: "Enter your country",
+    label: "Country",
+    componentType: "input",
+  },
+  {
+    id: "postalCode",
+    type: "input",
+    placeholder: "Enter your postal code",
+    label: "Postal Code",
+    componentType: "input",
+  },
+];
