@@ -56,6 +56,9 @@ export default function GlobalState({ children }) {
     initialCheckoutFormData
   );
 
+  const [allOrdersForUser, setAllOrdersForUser] = useState([]);
+  const [orderDetails, setOrderDetails] = useState(null);
+
   const router = useRouter();
   const pathName = usePathname();
 
@@ -117,6 +120,10 @@ export default function GlobalState({ children }) {
         setAddressFormData,
         checkoutFormData,
         setCheckoutFormData,
+        allOrdersForUser,
+        setAllOrdersForUser,
+        orderDetails,
+        setOrderDetails,
       }}
     >
       {children}
