@@ -54,7 +54,7 @@ export default function OrderDetails() {
     <div className="py-14 px-4 md:px-6">
       <div className="flex justify-start items-start space-y-2 flex-col">
         <h1 className="text-3xl lg:text-4xl font-bold leading-7 lg:leading-9 text-gray-900">
-          Order #{orderDetails._id}
+          Order #{orderDetails && orderDetails._id}
         </h1>
         <p className="text-base font-medium leadong-6 text-gray-600">
           {orderDetails &&
